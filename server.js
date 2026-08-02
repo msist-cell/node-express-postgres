@@ -28,6 +28,9 @@ app.get("/", (req, res) => {
 // Importamos y registramos las rutas de la aplicación
 require("./app/routes/cliente.route")(app);
 require("./app/routes/producto.route")(app);
+require("./app/routes/departamento.route")(app);
+require("./app/routes/empleado.route")(app);
+require("./app/routes/proveedor.route")(app);
 
 // Definición del puerto
 const PORT = process.env.PORT || 8081;
