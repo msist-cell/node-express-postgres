@@ -41,6 +41,9 @@ db.clientes = require("./cliente.model.js")(sequelize, Sequelize);
 
 // NUEVA MODIFICACIÓN: Importamos el modelo de producto y lo registramos en el objeto 'db'
 db.productos = require("./producto.model.js")(sequelize, Sequelize);
+db.clientes = require("./departamento.model.js")(sequelize, Sequelize);
+db.clientes = require("./empleado.model.js")(sequelize, Sequelize);
+db.clientes = require("./proveedor.model.js")(sequelize, Sequelize);
 // Aquí puedes seguir importando otros modelos de forma similar
 // Ejemplo: db.productos = require("./producto.model.js")(sequelize, Sequelize);
 
