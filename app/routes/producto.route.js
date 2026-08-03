@@ -7,7 +7,6 @@ module.exports = app => {
 
     // Obtener todos los Productos
     router.get("/", productos.findAll);
-
     // Obtener un Producto por ID
     router.get("/:id", productos.findOne);
 
