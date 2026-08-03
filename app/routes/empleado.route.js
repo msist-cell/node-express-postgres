@@ -1,21 +1,28 @@
 module.exports = app => {
     const empleado = require("../controllers/empleado.controller.js");
     var router = require("express").Router();
-    // Create a new Client
-    router.post("/create/", empleado.create);
-    // Retrieve all Client
+
+    // Crear un nuevo Empleado
+    router.post("/", empleado.create);
+
+    // Obtener todos los Empleados
     router.get("/", empleado.findAll);
-    // Retrieve all published Client
+
+    // Obtener Empleados por estado activo
     router.get("/status", empleado.findAllStatus);
-    // Retrieve a single Client with id
+
+    // Obtener un Empleado por ID
     router.get("/:id", empleado.findOne);
-    // Update a Client with id
-    router.put("/update/:id", empleado.update);
-    // Delete a Client with id
-    router.delete("/delete/:id", empleado.delete);
-    // Delete all Cliente
-    router.delete("/delete/", empleado.deleteAll);
-    // Podemos utilizar como una ocpion app.use("EndPoint",router" para simplicar el URI
-    // Ej.  http://localhost:Puerto/api/cliente/
-    app.use("/api/customer", router);
+
+    // Actualizar un Empleado por ID
+    router.put("/:id", empleado.update);
+
+    // Eliminar un Empleado por ID
+    router.delete("/:id", empleado.delete);
+
+    // Eliminar todos los Empleados
+    router.delete("/", empleado.deleteAll);
+
+    // Ruta base unificada en español
+    app.use("/api/empleados", router);
 };

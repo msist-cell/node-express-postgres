@@ -1,21 +1,28 @@
 module.exports = app => {
     const proveedor = require("../controllers/proveedor.controller.js");
     var router = require("express").Router();
-    // Create a new Client
-    router.post("/create/", proveedor.create);
-    // Retrieve all Client
+
+    // Crear un nuevo Proveedor
+    router.post("/", proveedor.create);
+
+    // Obtener todos los Proveedores
     router.get("/", proveedor.findAll);
-    // Retrieve all published Client
+
+    // Obtener Proveedores por estado activo
     router.get("/status", proveedor.findAllStatus);
-    // Retrieve a single Client with id
+
+    // Obtener un Proveedor por ID
     router.get("/:id", proveedor.findOne);
-    // Update a Client with id
-    router.put("/update/:id", proveedor.update);
-    // Delete a Client with id
-    router.delete("/delete/:id", proveedor.delete);
-    // Delete all Cliente
-    router.delete("/delete/", proveedor.deleteAll);
-    // Podemos utilizar como una ocpion app.use("EndPoint",router" para simplicar el URI
-    // Ej.  http://localhost:Puerto/api/cliente/
-    app.use("/api/customer", router);
+
+    // Actualizar un Proveedor por ID
+    router.put("/:id", proveedor.update);
+
+    // Eliminar un Proveedor por ID
+    router.delete("/:id", proveedor.delete);
+
+    // Eliminar todos los Proveedores
+    router.delete("/", proveedor.deleteAll);
+
+    // Ruta base unificada en español
+    app.use("/api/proveedores", router);
 };

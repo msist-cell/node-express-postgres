@@ -1,21 +1,28 @@
 module.exports = app => {
     const departamento = require("../controllers/departamento.controller.js");
     var router = require("express").Router();
-    // Create a new Client
-    router.post("/create/", departamento.create);
-    // Retrieve all Client
+
+    // Crear un nuevo Departamento
+    router.post("/", departamento.create);
+
+    // Obtener todos los Departamentos
     router.get("/", departamento.findAll);
-    // Retrieve all published Client
+
+    // Obtener Departamentos por estado activo
     router.get("/status", departamento.findAllStatus);
-    // Retrieve a single Client with id
+
+    // Obtener un Departamento por ID
     router.get("/:id", departamento.findOne);
-    // Update a Client with id
-    router.put("/update/:id", departamento.update);
-    // Delete a Client with id
-    router.delete("/delete/:id", departamento.delete);
-    // Delete all Cliente
-    router.delete("/delete/", departamento.deleteAll);
-    // Podemos utilizar como una ocpion app.use("EndPoint",router" para simplicar el URI
-    // Ej.  http://localhost:Puerto/api/cliente/
-    app.use("/api/customer", router);
+
+    // Actualizar un Departamento por ID
+    router.put("/:id", departamento.update);
+
+    // Eliminar un Departamento por ID
+    router.delete("/:id", departamento.delete);
+
+    // Eliminar todos los Departamentos
+    router.delete("/", departamento.deleteAll);
+
+    // Ruta base unificada en español
+    app.use("/api/departamentos", router);
 };

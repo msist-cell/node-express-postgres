@@ -1,22 +1,28 @@
 module.exports = app => {
-  const productos = require("../controllers/producto.controller.js");
-  var router = require("express").Router();
+    const productos = require("../controllers/producto.controller.js");
+    var router = require("express").Router();
 
-  // Crear un producto
-  router.post("/create/", productos.create);
+    // Crear un nuevo Producto
+    router.post("/", productos.create);
 
-  // Obtener todos los productos
-  router.get("/", productos.findAll);
+    // Obtener todos los Productos
+    router.get("/", productos.findAll);
 
-  // Obtener un producto por ID
-  router.get("/:id", productos.findOne);
+    // Obtener Productos por estado activo (opcional)
+    router.get("/status", productos.findAllStatus);
 
-  // Actualizar un producto por ID
-  router.put("/update/:id", productos.update);
+    // Obtener un Producto por ID
+    router.get("/:id", productos.findOne);
 
-  // Eliminar un producto por ID
-  router.delete("/delete/:id", productos.delete);
+    // Actualizar un Producto por ID
+    router.put("/:id", productos.update);
 
-  // Endpoint base
-  app.use("/api/product", router);
+    // Eliminar un Producto por ID
+    router.delete("/:id", productos.delete);
+
+    // Eliminar todos los Productos (opcional)
+    router.delete("/", productos.deleteAll);
+
+    // Ruta base unificada en español
+    app.use("/api/productos", router);
 };
