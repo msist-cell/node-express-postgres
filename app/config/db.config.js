@@ -1,9 +1,11 @@
+require('dotenv').config();
+
 module.exports = {
-  HOST: "ep-bitter-water-atg8ttd9-pooler.c-9.us-east-1.aws.neon.tech",
-  USER: "neondb_owner",
-  PASSWORD: "npg_SIOavQ9T2sPx", // Sustituye esto por tu contraseña real de Neon
-  DB: "neondb",
-  dialect: "postgres",
+  HOST: process.env.DB_HOST,
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DB: process.env.DB_NAME,
+  dialect: process.env.DB_DIALECT || "postgres",
   pool: {
     max: 5,
     min: 0,

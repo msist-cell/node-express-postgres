@@ -1,1 +1,9 @@
+# Dependencias locales (ocupan mucho espacio)
 node_modules/
+
+# Archivo con credenciales privadas (NUNCA SUBIR)
+.env
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
